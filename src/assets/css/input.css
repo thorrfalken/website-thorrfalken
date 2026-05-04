@@ -1,0 +1,218 @@
+/* ──────────────────────────────────────────────
+   SELF-HOSTED FONTS – DSGVO-konform (kein Google-Server)
+   Dateien liegen in src/assets/fonts/
+   ────────────────────────────────────────────── */
+
+/* quicksand-regular - latin_latin-ext */
+@font-face {
+  font-display: swap;
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/quicksand-v37-latin_latin-ext-regular.woff2') format('woff2');
+}
+/* quicksand-500 - latin_latin-ext */
+@font-face {
+  font-display: swap;
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/quicksand-v37-latin_latin-ext-500.woff2') format('woff2');
+}
+/* quicksand-600 - latin_latin-ext */
+@font-face {
+  font-display: swap;
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/quicksand-v37-latin_latin-ext-600.woff2') format('woff2');
+}
+/* quicksand-700 - latin_latin-ext */
+@font-face {
+  font-display: swap;
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/quicksand-v37-latin_latin-ext-700.woff2') format('woff2');
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ──────────────────────────────────────────────
+   CSS CUSTOM PROPERTIES – Single Source of Truth
+   ────────────────────────────────────────────── */
+:root {
+  --c-sand:  #F2E2C4;
+  --c-amber: #F2D479;
+  --c-cta:   #F2B56B;
+  --c-terra: #BF7154;
+  --c-brown: #59190B;
+  --c-ink:   #000000;
+}
+
+/* ──────────────────────────────────────────────
+   BASE
+   ────────────────────────────────────────────── */
+@layer base {
+  html { scroll-behavior: smooth; }
+
+  body {
+    @apply bg-sand text-brown font-sans;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-bold text-brown leading-tight;
+  }
+
+  h1 { @apply text-4xl md:text-5xl; }
+  h2 { @apply text-3xl md:text-4xl; }
+  h3 { @apply text-xl md:text-2xl; }
+
+  a { @apply text-terra transition-colors duration-200; }
+  a:hover { @apply text-brown; }
+
+  img { @apply max-w-full; }
+}
+
+/* ──────────────────────────────────────────────
+   COMPONENTS
+   ────────────────────────────────────────────── */
+@layer components {
+
+  /* ── Buttons ─────────────────────────── */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-cta text-brown font-semibold
+           rounded-2xl shadow-md hover:bg-terra hover:text-sand
+           transition-all duration-200 hover:shadow-lg active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-amber text-brown font-semibold
+           rounded-2xl border-2 border-brown/20 hover:bg-cta
+           transition-all duration-200 hover:shadow-md active:scale-95;
+  }
+
+  .btn-heart {
+    @apply flex items-center justify-center w-10 h-10 bg-cta text-brown
+           rounded-xl hover:bg-terra hover:text-sand
+           transition-all duration-200 hover:scale-110 active:scale-95;
+  }
+
+  /* ── Cards ───────────────────────────── */
+  .card {
+    @apply bg-white/70 backdrop-blur-sm rounded-3xl shadow-lg overflow-hidden
+           border border-amber/30 transition-shadow duration-200 hover:shadow-xl;
+  }
+
+  .card-inner { @apply p-6; }
+
+  /* ── Feature Icons ───────────────────── */
+  .feature-icon {
+    @apply w-14 h-14 flex items-center justify-center
+           bg-amber/30 text-terra rounded-2xl mb-4;
+  }
+
+  /* ── Section ─────────────────────────── */
+  .section { @apply py-16 md:py-24; }
+  .container-default { @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8; }
+  .section-title {
+    @apply text-center mb-12;
+  }
+  .section-title h2 { @apply mb-3; }
+  .section-title p  { @apply text-brown/70 text-lg max-w-2xl mx-auto; }
+
+  /* ── Nav ─────────────────────────────── */
+  .nav-link {
+    @apply relative font-semibold text-brown/80 hover:text-brown
+           transition-colors duration-200 py-1;
+  }
+  .nav-link::after {
+    content: "";
+    @apply absolute left-0 bottom-0 w-0 h-0.5 bg-cta
+           transition-all duration-300;
+  }
+  .nav-link:hover::after { @apply w-full; }
+  .nav-link.active::after { @apply w-full; }
+  .nav-link.active { @apply text-brown; }
+
+  /* ── Sponsor Carousel ────────────────── */
+  .carousel-track {
+    @apply flex items-center gap-12 animate-scroll-left;
+    width: max-content;
+  }
+  .carousel-track:hover { animation-play-state: paused; }
+
+  /* ── PDF Badge ───────────────────────── */
+  .pdf-badge {
+    @apply inline-flex items-center gap-3 p-4 bg-white/60 rounded-2xl
+           border border-amber/30 hover:bg-amber/20 transition-colors duration-200;
+  }
+
+  /* ── IBAN Display ────────────────────── */
+  .iban-box {
+    @apply bg-white/60 backdrop-blur-sm border-2 border-amber rounded-3xl p-6
+           font-mono text-center;
+  }
+
+  /* ── Circular portrait ───────────────── */
+  .portrait {
+    @apply w-36 h-36 rounded-full object-cover mx-auto
+           border-4 border-amber shadow-lg;
+  }
+
+  .portrait-placeholder {
+    @apply w-36 h-36 rounded-full mx-auto
+           bg-amber/40 border-4 border-amber shadow-lg
+           flex items-center justify-center text-terra;
+  }
+}
+
+/* ──────────────────────────────────────────────
+   MOBILE MENU
+   ────────────────────────────────────────────── */
+#mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+#mobile-menu.open {
+  max-height: 400px;
+  opacity: 1;
+}
+
+/* Burger lines */
+.burger-line {
+  @apply block w-6 h-0.5 bg-brown transition-all duration-300;
+}
+[aria-expanded="true"] .burger-line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+[aria-expanded="true"] .burger-line:nth-child(2) {
+  opacity: 0;
+}
+[aria-expanded="true"] .burger-line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ──────────────────────────────────────────────
+   HERO WAVE DIVIDER
+   ────────────────────────────────────────────── */
+.wave-divider svg { display: block; }
+
+/* ──────────────────────────────────────────────
+   ANIMATIONS
+   ────────────────────────────────────────────── */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

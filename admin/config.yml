@@ -1,0 +1,126 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Netlify Identity – Decap CMS OAuth
+# ------------------------------------
+# In Netlify: Site Settings → Identity → Enable
+# Then: Identity → Services → Enable Git Gateway
+
+# Lokaler Proxy-Server (nur für Entwicklung)
+# Starte mit: npm run cms  →  npx decap-server (Port 8081)
+# Dann: npm run dev  →  Eleventy + Tailwind (Port 8080)
+local_backend: true
+
+media_folder: "src/assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+site_url: https://foerderverein-thorrfalken.de
+
+locale: de
+
+collections:
+
+  # ─────────────────────────────────────────
+  # PROJEKTE (Blog-Posts)
+  # ─────────────────────────────────────────
+  - name: "projekte"
+    label: "Projekte & Aktionen"
+    label_singular: "Projekt"
+    folder: "src/projekte"
+    create: true
+    slug: "{{year}}-{{slug}}"
+    extension: md
+    format: frontmatter
+    summary: "{{title}} ({{date}})"
+    sortable_fields: ["date", "title"]
+    fields:
+      - { label: "Titel",         name: "title",  widget: "string",   required: true }
+      - { label: "Datum",         name: "date",   widget: "datetime", format: "YYYY-MM-DD", required: true }
+      - label: "Titelbild (optional)"
+        name: "bild"
+        widget: "image"
+        required: false
+        default: ""
+        hint: "Wenn kein Bild gewählt wird, erscheint das Vereinslogo als Platzhalter."
+      - label: "Teaser (Kurztext für die Übersichtsseite)"
+        name: "teaser"
+        widget: "string"
+        required: false
+        pattern: ['^.{0,200}$', "Maximal 200 Zeichen"]
+        hint: "2–3 Sätze, die Lust aufs Lesen machen."
+      - { label: "Inhalt",        name: "body",   widget: "markdown" }
+
+  # ─────────────────────────────────────────
+  # VORSTAND
+  # ─────────────────────────────────────────
+  - name: "vorstand"
+    label: "Vorstand"
+    label_singular: "Vorstandsmitglied"
+    files:
+      - name: "vorstand"
+        label: "Vorstandsmitglieder"
+        file: "src/_data/vorstand.json"
+        fields:
+          - label: "Mitglieder"
+            name: "root"
+            widget: "list"
+            summary: "{{fields.name}} – {{fields.rolle}}"
+            fields:
+              - { label: "Name",       name: "name",  widget: "string" }
+              - { label: "Rolle",      name: "rolle", widget: "string" }
+              - { label: "Kurz-Bio",   name: "bio",   widget: "text" }
+              - label: "Portrait-Foto (optional)"
+                name: "bild"
+                widget: "image"
+                required: false
+                default: ""
+
+  # ─────────────────────────────────────────
+  # DOWNLOADS (PDF-Verwaltung)
+  # ─────────────────────────────────────────
+  - name: "downloads"
+    label: "Downloads"
+    label_singular: "Download"
+    files:
+      - name: "downloads"
+        label: "Download-Liste"
+        file: "src/_data/downloads.json"
+        fields:
+          - label: "Dokumente"
+            name: "root"
+            widget: "list"
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "Bezeichnung",  name: "label",       widget: "string" }
+              - { label: "Beschreibung", name: "beschreibung", widget: "string" }
+              - label: "PDF-Datei hochladen"
+                name: "datei"
+                widget: "file"
+                media_library:
+                  config:
+                    multiple: false
+
+  # ─────────────────────────────────────────
+  # SPONSOREN
+  # ─────────────────────────────────────────
+  - name: "sponsoren"
+    label: "Sponsoren-Karussell"
+    label_singular: "Sponsor"
+    files:
+      - name: "sponsoren"
+        label: "Sponsorenliste"
+        file: "src/_data/sponsors.json"
+        fields:
+          - label: "Sponsoren"
+            name: "root"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Name",    name: "name",  widget: "string" }
+              - { label: "Website", name: "url",   widget: "string", required: false, default: "#" }
+              - label: "Logo (optional)"
+                name: "logo"
+                widget: "image"
+                required: false
+                default: ""

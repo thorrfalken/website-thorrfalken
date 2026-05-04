@@ -1,0 +1,129 @@
+---
+layout: layouts/base.njk
+title: "Downloads & Impressum"
+description: "Vereinsdokumente zum Download sowie das Impressum des Fördervereins der CJD Kita Thorrfalken e.V."
+---
+
+<!-- Page Header -->
+<section class="bg-gradient-to-br from-sand via-amber/20 to-cta/10 pt-16 pb-20">
+  <div class="container-default text-center">
+    <div class="text-5xl mb-4">📁</div>
+    <h1 class="mb-4">Downloads &amp; Rechtliches</h1>
+    <p class="text-brown/70 text-xl max-w-2xl mx-auto">
+      Vereinsdokumente, Satzung und rechtliche Informationen.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ DOWNLOADS ═══════════════════════════════ -->
+<section id="downloads" class="section bg-sand">
+  <div class="container-default max-w-3xl">
+    <div class="section-title animate-on-scroll">
+      <h2>Dokumente &amp; Downloads</h2>
+      <p>Alle wichtigen Vereinsdokumente als PDF-Download.</p>
+    </div>
+
+    <div class="space-y-4 animate-on-scroll">
+      {% for doc in downloads %}
+      <a href="{{ doc.datei }}" download class="pdf-badge group w-full">
+        <!-- PDF Icon -->
+        <div class="flex-shrink-0 w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center group-hover:bg-red-200 transition-colors">
+          <svg viewBox="0 0 24 24" class="w-7 h-7" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="1" width="14" height="19" rx="2" fill="#DC2626" opacity="0.15"/>
+            <rect x="3" y="1" width="14" height="19" rx="2" stroke="#DC2626" stroke-width="1.5"/>
+            <path d="M17 5.5L20.5 9H18a1 1 0 01-1-1V5.5z" fill="#DC2626" stroke="#DC2626" stroke-width="1" stroke-linejoin="round"/>
+            <path d="M6.5 13h4M6.5 15.5h7M6.5 10.5h3" stroke="#DC2626" stroke-width="1.2" stroke-linecap="round"/>
+            <text x="4.5" y="21.5" font-family="sans-serif" font-size="4" font-weight="bold" fill="#DC2626">PDF</text>
+          </svg>
+        </div>
+        <div class="flex-1 text-left">
+          <p class="font-bold text-brown group-hover:text-terra transition-colors">{{ doc.label }}</p>
+          <p class="text-brown/60 text-sm">{{ doc.beschreibung }}</p>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-terra flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/>
+        </svg>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ═══ IMPRESSUM ═══════════════════════════════ -->
+<section id="impressum" class="section bg-amber/10">
+  <div class="container-default max-w-3xl">
+    <div class="card card-inner animate-on-scroll">
+      <h2 class="mb-8">Impressum</h2>
+
+      <div class="space-y-6 text-sm text-brown/80 leading-relaxed">
+
+        <div>
+          <h3 class="text-base mb-2">Angaben gemäß § 5 TMG</h3>
+          <address class="not-italic">
+            <strong>Förderverein der CJD Kita Thorrfalken e.V.</strong><br>
+            {{ site.address.street }}<br>
+            {{ site.address.city }}
+          </address>
+        </div>
+
+        <div>
+          <h3 class="text-base mb-2">Vertreten durch den Vorstand</h3>
+          <ul class="space-y-1">
+            <li><strong>Paul Ziegner</strong> – 1. Vorsitzender</li>
+            <li><strong>Florian Schmitz</strong> – 2. Vorsitzender</li>
+            <li><strong>Dr. Bernadette Schenk</strong> – Kassenwärtin</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-base mb-2">Registereintrag</h3>
+          <p>Eingetragen im Vereinsregister beim Amtsgericht Bergheim.<br>
+          <strong>Registernummer:</strong> VR {{ site.vereinsregister }}</p>
+        </div>
+
+        <div>
+          <h3 class="text-base mb-2">Steuernummer</h3>
+          <p>{{ site.steuernummer }}<br>
+          Der Verein ist vom Finanzamt Bergheim als gemeinnützig anerkannt.</p>
+        </div>
+
+        <div>
+          <h3 class="text-base mb-2">Kontakt</h3>
+          <p>E-Mail: <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+        </div>
+
+        <div>
+          <h3 class="text-base mb-2">Haftungsausschluss</h3>
+          <p>
+            Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte
+            externer Links. Für den Inhalt verlinkter Seiten sind ausschließlich deren Betreiber verantwortlich.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DATENSCHUTZ ══════════════════════════════ -->
+<section id="datenschutz" class="section bg-sand">
+  <div class="container-default max-w-3xl">
+    <div class="card card-inner animate-on-scroll">
+      <h2 class="mb-6">Datenschutzhinweise</h2>
+      <p class="text-sm text-brown/70 mb-4">
+        Diese Website wird als statische Seite betrieben. Es werden keinerlei Cookies gesetzt
+        und keine personenbezogenen Daten erhoben oder gespeichert, solange Sie kein Kontaktformular
+        nutzen (wir verwenden keins – DSGVO-konform per Mailto).
+      </p>
+      <p class="text-sm text-brown/70 mb-4">
+        Beim Hosting über GitHub Pages gelten die
+        <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener" class="underline">Datenschutzrichtlinien von GitHub</a>.
+        Ihre IP-Adresse kann im Rahmen des Hostings kurzfristig verarbeitet werden.
+      </p>
+      <p class="text-sm text-brown/70">
+        Die vollständigen Datenschutzhinweise finden Sie als PDF im
+        <a href="#downloads" class="underline">Downloadbereich</a> oben auf dieser Seite.
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,17 @@
+[
+  {
+    "label": "Vereinssatzung",
+    "datei": "/assets/images/uploads/satzung.pdf",
+    "beschreibung": "Die offizielle Satzung des Fördervereins der CJD Kita Thorrfalken e.V."
+  },
+  {
+    "label": "Aufnahmeantrag Mitgliedschaft",
+    "datei": "/assets/images/uploads/aufnahmeantrag.pdf",
+    "beschreibung": "Antrag zur Aufnahme als Mitglied des Fördervereins."
+  },
+  {
+    "label": "Datenschutzhinweise",
+    "datei": "/assets/images/uploads/datenschutz.pdf",
+    "beschreibung": "Informationen zur Verarbeitung personenbezogener Daten gem. DSGVO."
+  }
+]

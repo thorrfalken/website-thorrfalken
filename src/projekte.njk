@@ -1,0 +1,105 @@
+---
+layout: layouts/base.njk
+title: "Projekte"
+description: "Alle Aktionen und Projekte des Fördervereins der CJD Kita Thorrfalken e.V."
+pagination:
+  data: collections.projekte
+  size: 5
+  alias: posts
+  reverse: true
+permalink: "projekte{% if pagination.pageNumber > 0 %}/seite-{{ pagination.pageNumber + 1 }}{% endif %}/index.html"
+---
+
+<!-- Page Header -->
+<section class="bg-gradient-to-br from-sand via-amber/20 to-cta/10 pt-16 pb-20">
+  <div class="container-default text-center">
+    <div class="text-5xl mb-4">📋</div>
+    <h1 class="mb-4">Unsere Projekte</h1>
+    <p class="text-brown/70 text-xl max-w-2xl mx-auto">
+      Was unsere kleinen Falken mit Ihrer Unterstützung erleben dürfen.
+    </p>
+  </div>
+</section>
+
+<section class="section bg-sand">
+  <div class="container-default">
+
+    <!-- Year Filter -->
+    <div class="flex items-center gap-4 mb-10 flex-wrap animate-on-scroll">
+      <label class="font-semibold text-brown">Filtern nach Jahr:</label>
+      <select id="year-filter"
+        class="bg-white/70 border border-amber/40 rounded-2xl px-4 py-2 text-brown font-semibold
+               focus:outline-none focus:ring-2 focus:ring-cta/50 cursor-pointer">
+        <option value="all">Alle Jahre</option>
+        {% for year in collections.projekteJahre %}
+          <option value="{{ year }}">{{ year }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <!-- Project Grid -->
+    <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      {% for post in posts %}
+        <div class="project-item animate-on-scroll" data-year="{{ post.date | dateYear }}" style="animation-delay: {{ loop.index0 * 0.08 }}s">
+          {% set post = post %}
+          {% include "partials/project-card.njk" %}
+        </div>
+      {% else %}
+        <div class="col-span-3 text-center py-16">
+          <div class="text-5xl mb-4">🪺</div>
+          <p class="text-brown/70 text-lg">Noch keine Projekte vorhanden. Schau bald wieder vorbei!</p>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- No results msg -->
+    <div id="no-results" class="hidden text-center py-12">
+      <div class="text-5xl mb-4">🔍</div>
+      <p class="text-brown/70 text-lg">Keine Projekte für dieses Jahr gefunden.</p>
+    </div>
+
+    <!-- Pagination -->
+    {% if pagination.pages | length > 1 %}
+    <nav class="flex justify-center items-center gap-4 mt-4" aria-label="Seitennavigation">
+      {% if pagination.href.previous %}
+        <a href="{{ pagination.href.previous }}" class="btn-secondary !px-4 !py-2">
+          ← Vorherige
+        </a>
+      {% else %}
+        <span class="btn-secondary !px-4 !py-2 opacity-40 pointer-events-none">← Vorherige</span>
+      {% endif %}
+
+      <span class="text-brown/70 font-semibold">
+        Seite {{ pagination.pageNumber + 1 }} von {{ pagination.pages | length }}
+      </span>
+
+      {% if pagination.href.next %}
+        <a href="{{ pagination.href.next }}" class="btn-secondary !px-4 !py-2">
+          Nächste →
+        </a>
+      {% else %}
+        <span class="btn-secondary !px-4 !py-2 opacity-40 pointer-events-none">Nächste →</span>
+      {% endif %}
+    </nav>
+    {% endif %}
+
+  </div>
+</section>
+
+<!-- Year filter JS -->
+<script>
+  const filter = document.getElementById('year-filter');
+  const items  = document.querySelectorAll('.project-item');
+  const noRes  = document.getElementById('no-results');
+
+  filter.addEventListener('change', () => {
+    const val = filter.value;
+    let visible = 0;
+    items.forEach(item => {
+      const show = val === 'all' || item.dataset.year === val;
+      item.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    noRes.classList.toggle('hidden', visible > 0);
+  });
+</script>

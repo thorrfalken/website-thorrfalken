@@ -1,0 +1,123 @@
+---
+layout: layouts/base.njk
+title: "Spenden"
+description: "Unterstützen Sie den Förderverein der CJD Kita Thorrfalken e.V. mit einer Spende. Gemeinnützig und steuerlich absetzbar."
+---
+
+<!-- Page Header -->
+<section class="bg-gradient-to-br from-sand via-cta/20 to-terra/10 pt-16 pb-20">
+  <div class="container-default text-center">
+    <div class="text-5xl mb-4">💛</div>
+    <h1 class="mb-4">Jetzt spenden</h1>
+    <p class="text-brown/70 text-xl max-w-2xl mx-auto">
+      Ihre Spende landet direkt im Nest – für jeden kleinen Falken.
+    </p>
+  </div>
+</section>
+
+<section class="section bg-sand">
+  <div class="container-default max-w-4xl">
+
+    <!-- Gemeinnützigkeitshinweis -->
+    <div class="card card-inner mb-10 animate-on-scroll border-l-4 border-cta">
+      <div class="flex gap-4 items-start">
+        <div class="text-3xl mt-1">📜</div>
+        <div>
+          <h3 class="mb-2">Gemeinnützigkeit &amp; Steuerliche Absetzbarkeit</h3>
+          <p class="text-brown/80 text-sm leading-relaxed">
+            Der Förderverein der CJD Kita Thorrfalken e.V. ist vom Finanzamt Bergheim
+            als gemeinnützig anerkannt (St-Nr. <strong>{{ site.steuernummer }}</strong>).
+            Spenden sind steuerlich absetzbar. Für Spenden bis <strong>300 €</strong> genügt
+            der Kontoauszug als Nachweis. Für höhere Beträge stellen wir Ihnen gerne eine
+            offizielle Spendenquittung aus – senden Sie uns einfach eine E-Mail mit
+            Ihrer Postanschrift an
+            <a href="mailto:{{ site.email }}">{{ site.email }}</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Spendenoptionen -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+
+<!-- PayPal -->
+<div class="card card-inner animate-on-scroll text-center flex flex-col items-center">
+  <!-- QR-Code Bereich -->
+  <div class="mb-6 p-4 bg-white rounded-2xl border border-amber/20 shadow-inner">
+    <img 
+      src="/assets/images/paypal-qr.png" 
+      alt="PayPal QR-Code für Spenden" 
+      class="w-32 h-32 md:w-40 md:h-40 object-contain"
+    />
+  </div>
+  
+  <h3 class="mb-2">Über PayPal spenden</h3>
+  <p class="text-brown/70 text-sm mb-6">
+    Scannen Sie den Code oder nutzen Sie den Button, um einfach Gutes zu tun.
+  </p>
+  
+  <a href="https://www.paypal.com/qrcodes/managed/d546e2ce-e5dc-4a55-8ebb-c8b20546c4e8?utm_source=consapp_download" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     class="btn-primary w-full justify-center">
+    Zu PayPal →
+  </a>
+  <p class="text-brown/50 text-xs mt-3">Sie werden zu PayPal weitergeleitet.</p>
+</div>
+
+      <!-- Überweisung -->
+      <div class="card card-inner animate-on-scroll" style="animation-delay:0.1s">
+        <div class="text-5xl mb-4 text-center">🏦</div>
+        <h3 class="mb-4 text-center">Per Überweisung</h3>
+        <div class="iban-box space-y-3 text-sm">
+          <div>
+            <p class="text-brown/60 text-xs font-semibold uppercase tracking-wider mb-1">Empfänger</p>
+            <p class="font-bold text-brown">Förderverein d. CJD Kita Thorrfalken e.V.</p>
+          </div>
+          <div>
+            <p class="text-brown/60 text-xs font-semibold uppercase tracking-wider mb-1">IBAN</p>
+            <p class="font-mono font-bold text-terra tracking-widest">{{ site.iban }}</p>
+          </div>
+          <div>
+            <p class="text-brown/60 text-xs font-semibold uppercase tracking-wider mb-1">BIC</p>
+            <p class="font-mono text-brown">{{ site.bic }}</p>
+          </div>
+          <div>
+            <p class="text-brown/60 text-xs font-semibold uppercase tracking-wider mb-1">Bank</p>
+            <p class="text-brown">{{ site.bank }}</p>
+          </div>
+          <div class="pt-2 border-t border-amber/30">
+            <p class="text-brown/60 text-xs font-semibold uppercase tracking-wider mb-1">Verwendungszweck</p>
+            <p class="text-brown text-xs">Spende + ggf. Ihr Name</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Spendenquittung Info -->
+    <div class="bg-amber/20 rounded-3xl p-8 animate-on-scroll">
+      <div class="flex gap-4 items-start">
+        <div class="text-4xl mt-1">📬</div>
+        <div>
+          <h3 class="mb-3">Spendenquittung erhalten</h3>
+          <p class="text-brown/80 text-sm leading-relaxed mb-4">
+            Möchten Sie eine Spendenquittung für Ihre Steuererklärung erhalten?
+            Schreiben Sie uns eine E-Mail mit folgenden Angaben:
+          </p>
+          <ul class="list-disc list-inside text-sm text-brown/70 space-y-1 mb-4">
+            <li>Vollständiger Name</li>
+            <li>Postanschrift</li>
+            <li>Spendenbetrag und Datum</li>
+            <li>Ggf. Überweisungsbeleg</li>
+          </ul>
+          <a href="mailto:{{ site.email }}?subject=Spendenquittung%20anfordern&body=Bitte%20senden%20Sie%20mir%20eine%20Spendenquittung%20für%20meine%20Spende.%0A%0AName%3A%20%0AAnschrift%3A%20%0ABetrag%3A%20%0ADatum%3A%20"
+             class="btn-secondary !py-2 !px-4 !text-sm">
+            Quittung anfordern per E-Mail
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

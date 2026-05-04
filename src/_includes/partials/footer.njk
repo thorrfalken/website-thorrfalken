@@ -1,0 +1,63 @@
+<footer class="bg-brown text-sand/80 mt-auto">
+  <div class="container-default py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+      <!-- Brand column -->
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <img src="/assets/images/logo.svg" alt="Logo" class="w-10 h-10 brightness-200 opacity-80"
+               onerror="this.style.display='none'" />
+          <div>
+            <p class="font-bold text-sand text-sm">Förderverein der</p>
+            <p class="font-bold text-sand text-sm">CJD Kita Thorrfalken e.V.</p>
+          </div>
+        </div>
+        <p class="text-sm leading-relaxed text-sand/70">
+          Gemeinnützig eingetragener Verein.<br>
+          VR: {{ site.vereinsregister }} · StNr: {{ site.steuernummer }}
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-sand font-bold text-base mb-4">Navigation</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/"            class="hover:text-cta transition-colors">Startseite</a></li>
+          <li><a href="/ueber-uns/" class="hover:text-cta transition-colors">Über uns</a></li>
+          <li><a href="/projekte/"  class="hover:text-cta transition-colors">Projekte</a></li>
+          <li><a href="/spenden/"   class="hover:text-cta transition-colors">Spenden</a></li>
+          <li><a href="/kontakt/"   class="hover:text-cta transition-colors">Kontakt</a></li>
+          <li><a href="/downloads/" class="hover:text-cta transition-colors">Downloads &amp; Impressum</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact & Donate -->
+      <div>
+        <h3 class="text-sand font-bold text-base mb-4">Kontakt &amp; Spenden</h3>
+        <p class="text-sm mb-2">
+          <a href="mailto:{{ site.email }}" class="hover:text-cta transition-colors break-all">{{ site.email }}</a>
+        </p>
+        <p class="text-sm mb-4 text-sand/70">{{ site.address.street }}<br>{{ site.address.city }}</p>
+        <a href="/spenden/" class="btn-primary !py-2 !px-4 !text-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+          </svg>
+          Jetzt spenden
+        </a>
+      </div>
+
+    </div><!-- end grid -->
+  </div>
+
+  <div class="border-t border-sand/10">
+    <div class="container-default py-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-sand/50">
+      <p>© {{ site.year }} Förderverein der CJD Kita Thorrfalken e.V.</p>
+      <p>
+        <a href="/downloads/#impressum" class="hover:text-cta transition-colors">Impressum</a>
+        &nbsp;·&nbsp;
+        <a href="/downloads/#datenschutz" class="hover:text-cta transition-colors">Datenschutz</a>
+      </p>
+    </div>
+  </div>
+</footer>

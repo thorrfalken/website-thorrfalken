@@ -1,0 +1,21 @@
+{
+  "name": "kita-thorrfalken",
+  "version": "1.0.0",
+  "description": "Website des Fördervereins der CJD Kita Thorrfalken e.V.",
+  "scripts": {
+    "dev": "concurrently \"npx @11ty/eleventy --serve --watch\" \"npx tailwindcss -i ./src/assets/css/input.css -o ./src/assets/css/output.css --watch\"",
+    "build": "npx tailwindcss -i ./src/assets/css/input.css -o ./src/assets/css/output.css && npx @11ty/eleventy",
+    "build:css": "npx tailwindcss -i ./src/assets/css/input.css -o ./src/assets/css/output.css",
+    "build:11ty": "npx @11ty/eleventy",
+    "cms": "npx decap-server"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@tailwindcss/typography": "^0.5.19",
+    "autoprefixer": "^10.4.19",
+    "concurrently": "^8.2.2",
+    "luxon": "^3.5.0",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4"
+  }
+}
