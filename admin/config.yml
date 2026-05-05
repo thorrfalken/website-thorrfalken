@@ -7,10 +7,7 @@ backend:
 # In Netlify: Site Settings → Identity → Enable
 # Then: Identity → Services → Enable Git Gateway
 
-# Lokaler Proxy-Server (nur für Entwicklung)
-# Starte mit: npm run cms  →  npx decap-server (Port 8081)
-# Dann: npm run dev  →  Eleventy + Tailwind (Port 8080)
-local_backend: true
+
 
 media_folder: "src/assets/images/uploads"
 public_folder: "/assets/images/uploads"
