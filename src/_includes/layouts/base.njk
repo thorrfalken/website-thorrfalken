@@ -48,9 +48,12 @@
   </script>
 
   <!-- Netlify Identity Widget: fängt #invite_token und #recovery_token ab -->
+  <script>
+    localStorage.setItem("netlifySiteURL", "https://thorrfalken.netlify.app");
+  </script>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
-    // Leitet Token-Links automatisch zum Admin-Bereich weiter
+    // Nach Login automatisch zum Admin-Bereich weiterleiten
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
         if (!user) {

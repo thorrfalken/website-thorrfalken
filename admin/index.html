@@ -4,7 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CMS – Förderverein Kita Thorrfalken</title>
-  <!-- Netlify Identity Widget – erforderlich für Login, Einladungen und Passwort-Reset -->
+  <!-- WICHTIG: Hard-Link zum Netlify-Backend BEVOR das Widget lädt.
+       GitHub Pages kennt kein /.netlify/identity – dieser Eintrag
+       überschreibt die Auto-Erkennung und zeigt auf die Netlify-App. -->
+  <script>
+    localStorage.setItem("netlifySiteURL", "https://thorrfalken.netlify.app");
+  </script>
+  <!-- Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
