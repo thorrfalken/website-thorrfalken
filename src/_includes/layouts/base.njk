@@ -1,40 +1,50 @@
-<!-- Am Ende deiner base.njk vor </body> -->
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="{{ description or site.description }}" />
+  <title>{% if title %}{{ title }} – {% endif %}{{ site.title }}</title>
 
-<!-- 1. Netlify Identity Widget laden -->
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml" />
 
-<script>
-  // 2. Den Handshake nur ausführen, wenn wir uns nicht im Admin-Bereich befinden
-  if (window.netlifyIdentity) {
-    // Verknüpfung zur Netlify-Instanz für Cross-Domain-Auth
-    localStorage.setItem("netlifySiteURL", "https://thorrfalken.netlify.app");
+  <!-- Tailwind compiled CSS -->
+  <link rel="stylesheet" href="/assets/css/output.css" />
 
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          // Weiterleitung zum Admin-Dashboard nach erfolgreichem Login
-          document.location.href = "/admin/";
-        });
-      }
-    });
-  }
+  <!-- Open Graph -->
+  <meta property="og:title"       content="{{ title or site.title }}" />
+  <meta property="og:description" content="{{ description or site.description }}" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="{{ site.url }}{{ page.url }}" />
+</head>
+<body class="flex flex-col min-h-screen">
 
-  // 3. Scroll-Observer Logik
-  const observer = new IntersectionObserver(
-    entries => entries.forEach(e => { 
-      if (e.isIntersecting) e.target.classList.add('visible'); 
-    }),
-    { threshold: 0.1 }
-  );
-  document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+  {% include "partials/header.njk" %}
 
-  // 4. Burger Menü Logik
-  const burgerBtn = document.getElementById('burger-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  if (burgerBtn && mobileMenu) {
-    burgerBtn.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('open');
-      burgerBtn.setAttribute('aria-expanded', isOpen);
-    });
-  }
-</script>
+  <main class="flex-1">
+    {{ content | safe }}
+  </main>
+
+  {% include "partials/footer.njk" %}
+
+  <!-- Scroll-reveal observer -->
+  <script>
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+    // Burger menu
+    const burgerBtn = document.getElementById('burger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (burgerBtn && mobileMenu) {
+      burgerBtn.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        burgerBtn.setAttribute('aria-expanded', isOpen);
+      });
+    }
+  </script>
+</body>
+</html>
