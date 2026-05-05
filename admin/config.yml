@@ -15,7 +15,7 @@ local_backend: true
 media_folder: "src/assets/images/uploads"
 public_folder: "/assets/images/uploads"
 
-site_url: https://foerderverein-thorrfalken.de
+site_url: https://thorrfalken.de
 
 locale: de
 
