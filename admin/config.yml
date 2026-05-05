@@ -1,24 +1,25 @@
-# admin/config.yml
 backend:
   name: git-gateway
   branch: main
-  # Diese URLs sind entscheidend für den Betrieb auf GitHub Pages
   identity_url: https://thorrfalken.netlify.app/.netlify/identity
   gateway_url: https://thorrfalken.netlify.app/.netlify/git
 
-# Erzwingt die Nutzung des Live-Backends
-local_backend: false
+# Netlify Identity – Decap CMS OAuth
+# ------------------------------------
+# In Netlify: Site Settings → Identity → Enable
+# Then: Identity → Services → Enable Git Gateway
 
-# Ermöglicht das Speichern von Entwürfen (Review-Prozess)
-publish_mode: editorial_workflow
+
 
 media_folder: "src/assets/images/uploads"
 public_folder: "/assets/images/uploads"
 
 site_url: https://thorrfalken.de
+
 locale: de
 
 collections:
+
   # ─────────────────────────────────────────
   # PROJEKTE (Blog-Posts)
   # ─────────────────────────────────────────
@@ -33,22 +34,92 @@ collections:
     summary: "{{title}} ({{date}})"
     sortable_fields: ["date", "title"]
     fields:
-      - { label: "Titel", name: "title", widget: "string", required: true }
-      - { label: "Datum", name: "date", widget: "datetime", format: "YYYY-MM-DD", required: true }
+      - { label: "Titel",         name: "title",  widget: "string",   required: true }
+      - { label: "Datum",         name: "date",   widget: "datetime", format: "YYYY-MM-DD", required: true }
       - label: "Titelbild (optional)"
         name: "bild"
         widget: "image"
         required: false
         default: ""
-        hint: "Erscheint als Headerbild im Projekt."
-      - label: "Teaser"
+        hint: "Wenn kein Bild gewählt wird, erscheint das Vereinslogo als Platzhalter."
+      - label: "Teaser (Kurztext für die Übersichtsseite)"
         name: "teaser"
         widget: "string"
         required: false
-        hint: "Kurztext für die Übersichtskarten."
-      - { label: "Inhalt", name: "body", widget: "markdown" }
+        pattern: ['^.{0,200}$', "Maximal 200 Zeichen"]
+        hint: "2–3 Sätze, die Lust aufs Lesen machen."
+      - { label: "Inhalt",        name: "body",   widget: "markdown" }
 
   # ─────────────────────────────────────────
-  # VORSTAND & DOWNLOADS & SPONSOREN
+  # VORSTAND
   # ─────────────────────────────────────────
-  # (Hier bleiben deine Datei-Collections wie oben definiert bestehen)
+  - name: "vorstand"
+    label: "Vorstand"
+    label_singular: "Vorstandsmitglied"
+    files:
+      - name: "vorstand"
+        label: "Vorstandsmitglieder"
+        file: "src/_data/vorstand.json"
+        fields:
+          - label: "Mitglieder"
+            name: "root"
+            widget: "list"
+            summary: "{{fields.name}} – {{fields.rolle}}"
+            fields:
+              - { label: "Name",       name: "name",  widget: "string" }
+              - { label: "Rolle",      name: "rolle", widget: "string" }
+              - { label: "Kurz-Bio",   name: "bio",   widget: "text" }
+              - label: "Portrait-Foto (optional)"
+                name: "bild"
+                widget: "image"
+                required: false
+                default: ""
+
+  # ─────────────────────────────────────────
+  # DOWNLOADS (PDF-Verwaltung)
+  # ─────────────────────────────────────────
+  - name: "downloads"
+    label: "Downloads"
+    label_singular: "Download"
+    files:
+      - name: "downloads"
+        label: "Download-Liste"
+        file: "src/_data/downloads.json"
+        fields:
+          - label: "Dokumente"
+            name: "root"
+            widget: "list"
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "Bezeichnung",  name: "label",       widget: "string" }
+              - { label: "Beschreibung", name: "beschreibung", widget: "string" }
+              - label: "PDF-Datei hochladen"
+                name: "datei"
+                widget: "file"
+                media_library:
+                  config:
+                    multiple: false
+
+  # ─────────────────────────────────────────
+  # SPONSOREN
+  # ─────────────────────────────────────────
+  - name: "sponsoren"
+    label: "Sponsoren-Karussell"
+    label_singular: "Sponsor"
+    files:
+      - name: "sponsoren"
+        label: "Sponsorenliste"
+        file: "src/_data/sponsors.json"
+        fields:
+          - label: "Sponsoren"
+            name: "root"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Name",    name: "name",  widget: "string" }
+              - { label: "Website", name: "url",   widget: "string", required: false, default: "#" }
+              - label: "Logo (optional)"
+                name: "logo"
+                widget: "image"
+                required: false
+                default: ""
