@@ -1,34 +1,15 @@
 <!DOCTYPE html>
-<html lang="de">
+<html>
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Content Manager | Förderverein Thorrfalken</title>
-  <!-- 1. Netlify Identity Widget zuerst laden -->
+  <title>Content Manager | Thorrfalken</title>
+  <script>
+    // ZUERST: Den Wegweiser setzen, bevor das Widget oder CMS lädt
+    localStorage.setItem("netlifySiteURL", "https://thorrfalken.netlify.app");
+  </script>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-  <!-- 2. Decap CMS App laden -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-
-  <script>
-    // 3. Den "Handshake" konfigurieren
-    if (window.netlifyIdentity) {
-      // Wenn das Widget geladen ist, erzwingen wir die richtige URL
-      // Dies verhindert die 404-Suche auf thorrfalken.de
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
-
-    // 4. Der "Geheimtrick" für Cross-Domain-Auth
-    // Wir speichern die Netlify-URL direkt im LocalStorage des Browsers.
-    // Decap CMS erkennt diesen Wert und nutzt ihn für die Authentifizierung.
-    localStorage.setItem("netlifySiteURL", "https://thorrfalken.netlify.app");
-  </script>
 </body>
 </html>
