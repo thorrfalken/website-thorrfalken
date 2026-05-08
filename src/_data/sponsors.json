@@ -1,9 +1,9 @@
 [
-{ "name": "RWE AG", "logo": "/assets/images/sponsors/rwe.png", "url": "https://www.rwe.com" }
-{ "name": "KSK Köln", "logo": "/assets/images/sponsors/ksk.png", "url": "https://www.ksk-koeln.de/de/home.html" }
-{ "name": "Ravensburger", "logo": "/assets/images/sponsors/ravensburger.png", "url": "https://www.ravensburger.de/" }
-{ "name": "LANUK NRW", "logo": "/assets/images/sponsors/lanuk.svg", "url": "https://www.lanuk.nrw.de/" }
-{ "name": "Rhein Erft Kreis", "logo": "/assets/images/sponsors/REK.png", "url": "https://www.rhein-erft-kreis.de/" }
-{ "name": "DSEE", "logo": "/assets/images/sponsors/DSEE.svg", "url": "https://www.deutsche-stiftung-engagement-und-ehrenamt.de/" }
+{ "name": "RWE AG", "logo": "/assets/images/sponsors/rwe.png", "url": "https://www.rwe.com" },
+{ "name": "KSK Köln", "logo": "/assets/images/sponsors/ksk.png", "url": "https://www.ksk-koeln.de/de/home.html" },
+{ "name": "Ravensburger", "logo": "/assets/images/sponsors/ravensburger.png", "url": "https://www.ravensburger.de/" },
+{ "name": "LANUK NRW", "logo": "/assets/images/sponsors/lanuk.svg", "url": "https://www.lanuk.nrw.de/" },
+{ "name": "Rhein Erft Kreis", "logo": "/assets/images/sponsors/REK.png", "url": "https://www.rhein-erft-kreis.de/" },
+{ "name": "DSEE", "logo": "/assets/images/sponsors/DSEE.svg", "url": "https://www.deutsche-stiftung-engagement-und-ehrenamt.de/" },
 { "name": "Volksbank Erft eG", "logo": "/assets/images/sponsors/Volksbank.png", "url": "https://www.volksbank-erft.de/" }
 ]
