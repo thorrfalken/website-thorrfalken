@@ -2,7 +2,7 @@
 title: Vom Ei zum Schmetterling - unser Distelfalter-Projekt
 date: 2026-04-10
 bild: /assets/images/uploads/Schmetterling_1.jpg
-teaser: Vom Ei zum Schmetterling: Wochenlang beobachteten unsere Kinder gespannt den Lebenszyklus des Distelfalters. Ein echtes Naturwunder hautnah – inklusive dem großen Abflug in die Freiheit!
+teaser: Wochenlang beobachteten unsere Kinder gespannt den Lebenszyklus des Distelfalters. Ein echtes Naturwunder hautnah – inklusive dem großen Abflug in die Freiheit!
 ---
 In den vergangenen Wochen konnten die Kinder, organisiert vom Förderverein der CJD Kita Thorrfalken e.V., ein faszinierendes Naturprojekt begleiten: Den Lebenszyklus des Distelfalters.
 
