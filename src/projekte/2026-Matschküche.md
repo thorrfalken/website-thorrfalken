@@ -2,7 +2,7 @@
 title: Großzügige Unterstützung für unsere neue Matschküche
 date: 2026-06-12
 bild: /assets/images/uploads/Matschküche_1.jpg
-teaser: Ein echter Herzenswunsch geht in Erfüllung: Die Kreissparkasse Köln spendet unserer Kita eine tolle Matschküche. Ab sofort wird im Außengelände fleißig gemischt, gekocht und kreativ experimentiert!
+teaser: Ein echter Herzenswunsch geht in Erfüllung. Die Kreissparkasse Köln spendet unserer Kita eine tolle Matschküche. Ab sofort wird im Außengelände fleißig gemischt, gekocht und kreativ experimentiert!
 ---
 Die Kinder unserer CJD Kita Thorrfalken dürfen sich über eine tolle Bereicherung unseres Außengeländes freuen: Dank einer großzügigen Spende der Kreissparkasse Köln konnte der Förderverein der CJD Kita Thorrfalken e.V. eine zertifizierte, robuste und auf die Bedürfnisse von Kindern abgestimmte Matschküche anschaffen.
 
