@@ -2,7 +2,7 @@
 title: Förderverein der CJD Kita Thorrfalken e.V. beim Garagentrödel in Thorr
 date: 2026-05-30
 bild: /assets/images/uploads/Garage_1.jpg
-teaser: Waffelduft und tolle Stimmung: Beim Garagentrödel in Thorr durfte unser Förderverein die Cafeteria rocken. Dank fleißiger Eltern und toller Spenden wurde geschlemmt, getrödelt und gelacht!
+teaser: "Waffelduft und tolle Stimmung: Beim Garagentrödel in Thorr durfte unser Förderverein die Cafeteria rocken. Dank fleißiger Eltern und toller Spenden wurde geschlemmt, getrödelt und gelacht!"
 ---
 Beim diesjährigen Garagentrödel am 30.05.2026 in Thorr war auch der Förderverein der CJD Kita Thorrfalken e.V. vertreten und durfte die Cafeteria übernehmen.
 
